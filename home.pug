@@ -1,0 +1,27 @@
+doctype html 
+html 
+    head
+        title Pug Template 
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        include ./includes/header.pug
+        .container
+            h2 SẢN PHẨM
+            table.content-table 
+                thead
+                    td STT 
+                    td Giày da nam  
+                    td Giày lười nam
+                    td Giày tây nam 
+                    td Giày tăng chiều cao 
+                tbody
+                    each todo, index in todos 
+                        tr 
+                            td=index 
+                            td=todo.title 
+                            td=todo.status 
+                            td
+                                a(href=`/delete-todo/${todo._id}`) Delete
+                                br
+                                a(href=`/update-todo/${todo._id}`) Update
+        include ./includes/footer.pug
